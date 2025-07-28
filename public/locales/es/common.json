@@ -1,0 +1,96 @@
+{
+   
+
+  "nav_inicio": "Inicio",
+  "nav_sobre_mi": "Sobre mí",
+  "nav_habilidades": "Habilidades",
+  "nav_proyectos": "Proyectos",
+  "nav_servicios": "Servicios",
+  "nav_contacto": "Contacto",
+  "navbar_subtitle": "Desarrollador Full Stack",
+
+  "hero_title": "Christopher Valdivia",
+  "hero_subtitle": "Desarrollador Full Stack Junior",
+  "descargar_cv": "📄 Descargar CV",
+  "contacto": "✉️ Contacto",
+
+  
+  "sobre_mi": "Sobre mí",
+  "about_paragraph_1": "Soy un desarrollador full stack apasionado por crear soluciones web eficientes y atractivas.",
+  "about_paragraph_2": "He trabajado con múltiples tecnologías como Java, .NET, PHP, Angular, React y bases de datos como MySQL, SQL Server y MongoDB.",
+  "about_paragraph_3": "Siempre estoy en búsqueda de nuevos retos para seguir aprendiendo y creciendo profesionalmente.",
+  "proyectos_completados": "Proyectos Completados",
+  "anios_experiencia": "Años de Experiencia",
+  "tecnologias": "Tecnologías",
+  "certificaciones": "Certificaciones",
+
+
+  "habilidades_tecnicas": "Habilidades Técnicas",
+  "habilidades_blandas": "Habilidades Blandas",
+
+  "tecnologias_favoritas": "Tecnologías Favoritas",
+  "por_que_contratarme": "¿Por qué contratarme?",
+  "punto_1": "Experiencia en proyectos reales",
+  "punto_2": "Buen manejo de Git y despliegue",
+  "punto_3": "Trabajo en equipo y comunicación",
+  "punto_4": "Soluciones limpias y escalables",
+
+  "proyectos_destacados": "🚀 Proyectos Destacados",
+  "proyectos_freelance": "Proyectos Freelance / Personales",
+  "ver_codigo": "Ver Código",
+
+  "servicios": "Servicios",
+  "servicio_web": "Desarrollo Web",
+  "servicio_web_desc": "Creación de sitios modernos, responsivos y optimizados.",
+  "servicio_api": "APIs REST",
+  "servicio_api_desc": "Desarrollo de APIs seguras y documentadas.",
+  "servicio_bd": "Bases de Datos",
+  "servicio_bd_desc": "Diseño y gestión de bases de datos relacionales y no relacionales.",
+
+  "experiencia": "Experiencia",
+  "experiencia_profesional": "Experiencia Profesional",
+  "descripcion_devdatep": "Diseño y mantenimiento de módulos web usando Spring Boot y Angular.",
+  "descripcion_licitapp": "Rediseño del chatbot, interfaz moderna y mejoras visuales con Tailwind.",
+
+  "certificados": "Certificaciones",
+  "cert_java": "Certificación Java",
+  "cert_react": "Certificación React",
+  "provider_cibertec": "Cibertec",
+  "provider_udemy": "Udemy",
+
+  
+  
+  "roadmap": "Roadmap",
+  "roadmap_2022": "HTML, CSS, JavaScript",
+  "roadmap_2023": "React, PHP, SQL Server",
+  "roadmap_2024": "Spring Boot, ASP.NET MVC",
+  "roadmap_2025": "Next.js, Tailwind, Freelance",
+
+  "ultimos_articulos": "📝 Últimos Artículos",
+  "blog_post_1": "Cómo crear un CRUD con React y Spring Boot",
+  "blog_post_2": "10 consejos prácticos para mejorar como desarrollador",
+
+  "estadisticas_github": "📊 Estadísticas GitHub",
+  "testimonios": "Testimonios",
+  "testimonio_1": "Christopher demostró gran compromiso y habilidades técnicas.",
+  "testimonio_2": "Destacó por su capacidad para resolver problemas y aprender rápido.",
+
+  "nombre": "Nombre",
+  "correo": "Correo electrónico",
+  "mensaje": "Mensaje",
+  "enviar_mensaje": "Enviar mensaje",
+  "mensaje_enviado": "¡Mensaje enviado con éxito!",
+  "mensaje_error": "Ocurrió un error al enviar el mensaje.",
+  "correo_invalido": "Correo electrónico no válido.",
+  "tienes_proyecto": "¿Tienes un proyecto en mente?",
+  "texto_contacto": "Estoy siempre abierto a discutir nuevas oportunidades o proyectos interesantes. ¡Contactemos!",
+
+  "contactame": "Contáctame",
+  "leer_mas": "Leer más",
+  "post_recientes": "Posts Recientes",
+  "no_posts": "No hay artículos disponibles aún.",
+  "cargando": "Cargando...",
+
+  "autor": "© 2025 Christopher Valdivia — Todos los derechos reservados",
+  "derechos_reservados": "Todos los derechos reservados"
+}

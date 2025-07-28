@@ -1,0 +1,77 @@
+---
+title: "Cómo crear un CRUD con React y Spring Boot"
+description: "Aprende a crear un CRUD funcional usando React y Spring Boot paso a paso."
+date: "2025-07-13"
+---
+
+En este artículo, exploraremos cómo construir una aplicación CRUD completa utilizando React para el frontend y Spring Boot para el backend.
+
+## 🔧 Tecnologías usadas
+
+- React con Vite
+- Spring Boot + Maven
+- MySQL
+- API REST
+
+## 📁 Estructura del proyecto
+
+La aplicación estará dividida en dos carpetas principales:
+
+my-crud-app/
+├── backend/ ← Proyecto con Spring Boot
+└── frontend/ ← Proyecto con React + Vite
+
+
+## 📦 Funcionalidades implementadas
+
+1. Crear usuarios
+2. Listar usuarios
+3. Editar usuarios
+4. Eliminar usuarios
+
+## 🚀 Flujo de desarrollo
+
+- El frontend hace llamadas HTTP (Axios o fetch) al backend.
+- El backend expone endpoints REST (por ejemplo: `GET /users`, `POST /users`, etc.).
+- Spring Boot se conecta a una base de datos MySQL usando JPA/Hibernate.
+
+## 🔨 Ejemplo de endpoints en Spring Boot
+
+```java
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    @GetMapping
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
+    @PostMapping
+    public User createUser(@RequestBody User user) {
+        return userRepository.save(user);
+    }
+
+    @PutMapping("/{id}")
+    public User updateUser(@PathVariable Long id, @RequestBody User userDetails) {
+        User user = userRepository.findById(id).orElseThrow();
+        user.setName(userDetails.getName());
+        user.setEmail(userDetails.getEmail());
+        return userRepository.save(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userRepository.deleteById(id);
+    }
+}
+
+🧠 Conclusión
+
+Un CRUD es un excelente punto de partida para aprender a integrar frontend y backend. Además, esta arquitectura modular te permitirá escalar la aplicación fácilmente, agregar autenticación, roles, validaciones, y más.
+
+
+¿Tienes dudas sobre cómo conectar el frontend a este backend? ¡Déjamelo saber y te ayudo con el ejemplo de React! 😎

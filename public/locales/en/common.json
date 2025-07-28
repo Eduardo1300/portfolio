@@ -1,0 +1,98 @@
+{
+
+  "nav_inicio": "Home",
+  "nav_sobre_mi": "About",
+  "nav_habilidades": "Skills",
+  "nav_proyectos": "Projects",
+  "nav_servicios": "Services",
+  "nav_contacto": "Contact",
+  "navbar_subtitle": "Full Stack Developer",
+
+  "hero_title": "Hi, I'm Christopher Valdivia",
+  "hero_subtitle": "Junior Full Stack Developer focused on building clean, scalable and functional solutions.",
+  "descargar_cv": "Download CV",
+  "contacto": "Contact Me",
+
+  "sobre_mi": "About Me",
+  "about_paragraph_1": "I'm a full stack developer passionate about building efficient and engaging web solutions.",
+  "about_paragraph_2": "I have experience working with technologies such as Java, .NET, PHP, Angular, React, and databases like MySQL, SQL Server, and MongoDB.",
+  "about_paragraph_3": "I'm always looking for new challenges to continue learning and growing professionally.",
+  "proyectos_completados": "Projects Completed",
+  "anios_experiencia": "Years of Experience",
+  "tecnologias": "Technologies",
+  "certificaciones": "Certifications",
+
+  "habilidades_tecnicas": "Technical Skills",
+  "habilidades_blandas": "Soft Skills",
+
+  "proyectos_destacados": "Featured Projects",
+  "ver_codigo": "View Code",
+  "proyectos_freelance": "Freelance / Personal Projects",
+
+  "servicios": "Services",
+  "servicio_web": "Web Development",
+  "servicio_web_desc": "Modern, responsive and optimized web applications.",
+  "servicio_api": "API Integration",
+  "servicio_api_desc": "Efficient and well-documented RESTful APIs.",
+  "servicio_bd": "Database Design",
+  "servicio_bd_desc": "Relational database design, optimization and management.",
+
+  "experiencia": "Experience",
+  "experiencia_profesional": "Professional Experience",
+  "descripcion_devdatep": "Web development intern focused on dashboard and landing page creation using HTML, CSS, JavaScript and Tailwind CSS.",
+  "descripcion_licitapp": "Developed mockups and landing pages for LicitApp's MVP, collaborating in UI/UX and SEO optimization.",
+
+  "certificados": "Certificates",
+  "cert_java": "Java Developer Certificate",
+  "cert_react": "React Developer Certificate",
+  "provider_cibertec": "Cibertec Institute",
+  "provider_udemy": "Udemy",
+
+  "tecnologias_favoritas": "Favorite Technologies",
+  "por_que_contratarme": "Why hire me?",
+  "punto_1": "Experience in real projects",
+  "punto_2": "Strong Git and deployment skills",
+  "punto_3": "Teamwork and communication",
+  "punto_4": "Clean and scalable solutions",
+
+
+
+  "roadmap": "Learning Roadmap",
+  "roadmap_2022": "HTML, CSS, JavaScript",
+  "roadmap_2023": "React, PHP, SQL Server",
+  "roadmap_2024": "Spring Boot, ASP.NET MVC",
+  "roadmap_2025": "Next.js, Tailwind, Freelance",
+
+    "ultimos_articulos": "📝 Latest Articles",
+  "blog_post_1": "How to Build a CRUD with React and Spring Boot",
+  "blog_post_2": "10 Practical Tips to Improve as a Developer",
+
+  "estadisticas_github": "GitHub Stats",
+  "testimonios": "Testimonials",
+  "testimonio_1": "\"Christopher was proactive and professional. A valuable team member.\"",
+  "testimonio_2": "\"Excellent developer with a passion for learning and clean code.\"",
+
+  "contactame": "Contact Me",
+  "nombre": "Name",
+  "email": "Email",
+  "mensaje": "Message",
+  "enviar": "Send",
+
+  
+  "correo": "Email",
+  "enviar_mensaje": "Send Message",
+  "mensaje_enviado": "Message sent successfully!",
+  "mensaje_error": "An error occurred while sending the message.",
+  "correo_invalido": "Invalid email address.",
+  "tienes_proyecto": "Do you have a project in mind?",
+  "texto_contacto": "I am always open to discussing new opportunities or interesting projects. Let’s connect!",
+
+
+  "autor": "Christopher Valdivia",
+  "derechos_reservados": "All rights reserved.",
+
+  "leer_mas": "Read more",
+  "post_recientes": "Recent Posts",
+  "no_posts": "No articles available yet.",
+  "cargando": "Loading..."
+}
