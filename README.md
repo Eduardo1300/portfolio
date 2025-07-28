@@ -32,3 +32,19 @@ git clone https://github.com/TU_USUARIO/portfolio.git
 cd portfolio
 npm install
 npm run dev
+```
+Luego abre http://localhost:3000
+📫 Contacto
+
+Puedes escribirme a través del formulario de contacto o a:
+
+    ✉️ valdivia.christopher@gmail.com
+
+    📍 Lima, Perú
+
+    
+    Desarrollado por Christopher Valdivia
+
+
+
+    
