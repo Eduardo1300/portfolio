@@ -1,8 +1,9 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { Typewriter } from "react-simple-typewriter";
-import ParticlesBackground from "./ParticlesBackground"; // Asegúrate que esté en la misma carpeta
+import ParticlesBackground from "./ParticlesBackground";
 
 export default function Hero() {
   const { t } = useTranslation("common");
@@ -19,6 +20,7 @@ export default function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center bg-white dark:bg-neutral-900 px-6 overflow-hidden"
+      aria-label="Sección principal del portafolio"
     >
       {/* Fondo animado de partículas */}
       <ParticlesBackground />
@@ -36,15 +38,17 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4 pt-4">
             <Link
-              href="/CV_ChristopherValdivia.pdf"
+              href="/cv-christopher-valdivia.pdf"
               download
-              className="px-5 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+              className="px-5 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              aria-label="Descargar CV de Christopher Valdivia"
             >
               📄 {t("descargar_cv")}
             </Link>
             <Link
               href="#contact"
-              className="px-5 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+              className="px-5 py-3 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+              aria-label="Ir a la sección de contacto"
             >
               ✉️ {t("contacto")}
             </Link>
@@ -53,15 +57,24 @@ export default function Hero() {
 
         {/* Animación + Foto */}
         <div className="flex flex-col items-center gap-6">
-          {/* Foto */}
-          <img
-            src="images/perfil-removebg-preview.png"
-            alt="Foto de Christopher"
-            className="w-40 h-40 rounded-full border-4 border-indigo-500 shadow-lg object-cover"
-          />
+          {/* Foto optimizada */}
+          <div className="relative w-40 h-40 rounded-full border-4 border-indigo-500 shadow-lg overflow-hidden">
+            <Image
+              src="/images/perfil-removebg-preview.png"
+              alt="Foto de perfil de Christopher Valdivia - Desarrollador Full Stack"
+              fill
+              sizes="(max-width: 768px) 160px, 160px"
+              className="object-cover"
+              priority
+              quality={90}
+            />
+          </div>
 
           {/* Código animado */}
-          <div className="code-animation text-sm w-full max-w-xs whitespace-pre-line">
+          <div 
+            className="code-animation text-sm w-full max-w-xs whitespace-pre-line bg-gray-100 dark:bg-gray-800 p-4 rounded-lg"
+            aria-label="Código de ejemplo del desarrollador"
+          >
             <Typewriter
               words={[fullCode]}
               loop={0}

@@ -1,78 +1,162 @@
 "use client";
 
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { Moon, Sun, Code2 } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { useTranslation } from "next-i18next";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
-import Link from "next/link";
-import { useTranslation } from "react-i18next"; // Importación para traducción
 
 const Navbar = () => {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const { t } = useTranslation(); // Hook de traducción
+  const { t } = useTranslation("common");
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    setIsDark(theme === "dark");
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = isDark ? "light" : "dark";
+    setIsDark(!isDark);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark");
+  };
 
   const navItems = [
-    { label: t("nav_inicio"), href: "#hero" },
-    { label: t("nav_sobre_mi"), href: "#about" },
-    { label: t("nav_habilidades"), href: "#skills" },
-    { label: t("nav_proyectos"), href: "#projects" },
-    { label: t("nav_servicios"), href: "#services" },
-    { label: t("nav_contacto"), href: "#contact" },
+    { href: "#about", label: t("sobre_mi") },
+    { href: "#skills", label: t("habilidades") },
+    { href: "#projects", label: t("proyectos") },
+    { href: "#experience", label: t("experiencia") },
+    { href: "#contact", label: t("contacto") },
   ];
 
   return (
-    <nav className="w-full fixed top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-md transition duration-300">
-      <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-        {/* Ícono y nombre */}
-        <Link href="#hero" className="flex items-center gap-3 group">
-          <div className="bg-indigo-100 dark:bg-indigo-600 p-2 rounded-full shadow-md transition-transform duration-300 group-hover:scale-110">
-            <Code2 className="w-6 h-6 text-indigo-600 dark:text-white" />
-          </div>
-          <div className="leading-tight">
-            <p className="text-sm font-bold text-gray-900 dark:text-white">
-              Christopher Valdivia
-            </p>
-            <p className="text-xs text-gray-600 dark:text-gray-400">
-              {t("navbar_subtitle")} {/* Esto también puedes traducir */}
-            </p>
-          </div>
-        </Link>
-
-        {/* Navegación + idioma + tema */}
-        <div className="flex items-center gap-4">
-          {navItems.map((item) => (
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex-shrink-0"
+          >
             <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+              href="#hero"
+              className="text-xl font-bold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200"
+              aria-label="Ir al inicio"
             >
-              {item.label}
+              Christopher Valdivia
             </a>
-          ))}
+          </motion.div>
 
-          {/* Idioma */}
-          <LanguageSwitcher />
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  whileHover={{ y: -2 }}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+            </div>
+          </div>
 
-          {/* Tema oscuro/claro */}
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="ml-2 p-2 rounded bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
-              aria-label="Toggle dark mode"
+          {/* Desktop Controls */}
+          <div className="hidden md:flex items-center space-x-4">
+            <LanguageSwitcher />
+            
+            <motion.button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
             >
-              {theme === "dark" ? (
-                <Sun className="w-5 h-5 text-yellow-400" />
-              ) : (
-                <Moon className="w-5 h-5 text-gray-800" />
-              )}
-            </button>
-          )}
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </motion.button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center space-x-2">
+            <LanguageSwitcher />
+            
+            <motion.button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label={isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+            >
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </motion.button>
+
+            <motion.button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-expanded={isOpen}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </motion.button>
+          </div>
         </div>
       </div>
-    </nav>
+
+      {/* Mobile Navigation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
+          >
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item, index) => (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  {item.label}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 

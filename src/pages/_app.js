@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "next-themes";
 import { appWithTranslation } from "next-i18next";
 import Loader from "../components/Loader";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -28,7 +29,11 @@ function MyApp({ Component, pageProps }) {
         <meta property="og:type" content="website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {loading ? <Loader /> : <Component {...pageProps} />}
+      {loading ? <Loader /> : (
+        <ErrorBoundary>
+          <Component {...pageProps} />
+        </ErrorBoundary>
+      )}
     </ThemeProvider>
   );
 }

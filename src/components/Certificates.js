@@ -1,5 +1,6 @@
 import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const certificates = [
   {
@@ -20,7 +21,10 @@ const Certificates = () => {
   const { t } = useTranslation("common");
 
   return (
-    <section className="py-20 px-4 bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200">
+    <section 
+      className="py-20 px-4 bg-white dark:bg-gray-950 text-gray-800 dark:text-gray-200"
+      aria-label="Sección de certificados"
+    >
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -42,11 +46,18 @@ const Certificates = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="group p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            className="group p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            aria-label={`Ver certificado de ${t(c.titleKey)}`}
           >
             <div className="flex flex-col items-center text-center">
               <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-full bg-white dark:bg-gray-900 shadow-inner group-hover:scale-110 transition-transform">
-                <img src={c.logo} alt={t(c.titleKey)} className="w-10 h-10" />
+                <Image 
+                  src={c.logo} 
+                  alt={`Logo del certificado ${t(c.titleKey)}`}
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
               </div>
               <h3 className="text-lg font-semibold mb-1">{t(c.titleKey)}</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400">{t(c.providerKey)}</p>
